@@ -22,10 +22,13 @@ return (
       <main className='min-h-screen'>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="product/:id"element={<ProductDetail addToCart={addToCart}/>}/>
-          <Route path="/cartt" element={CartPage cartItems={cartItem} removeFromCart={removeFromCart}/>} />
+          <Route path="/product/:id"element={<ProductDetail addToCart=
+          {addToCart}/>} />
+          <Route path="/cart" element={<CartPage cartItems={cartItems} 
+          removeFromCart={removeFromCart} /> } />
         </Routes>
-   
+        </main>
+      <Footer/>
     </Router>
   )
 }

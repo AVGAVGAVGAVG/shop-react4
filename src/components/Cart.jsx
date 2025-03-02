@@ -16,11 +16,10 @@ const Cart = ({cartItems,onRemove}) => {
                             </li>
                           ))  
                         }
-
                     </ul>
                 )
-
             }
         </div>
     )
 }
+export default Cart
