@@ -10,7 +10,7 @@ const Cart = ({cartItems,onRemove}) => {
                         {
                           cartItems.map(item=>(
                             <li key={item.id} className="flex justify-betwen items-center mb-2">
-                            <span {item.title}></span>
+                            <span> {item.title}</span>
                             <button onClick={()=>onRemove(item.id)}
                             className="text-red-500">Удалить</button>
                             </li>
