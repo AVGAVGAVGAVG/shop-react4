@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const CheckoutForm = ({finalPrise, onSubmit }) => {
+const CheckoutForm = ({finalPrice, onSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +27,7 @@ const CheckoutForm = ({finalPrise, onSubmit }) => {
         Оформление заказа!
       </h2>
       <p className='mb-4'>
-        Итогова стоимость со скидкой: {finalPrise.toFixed(2)} ₽
+        Итогова стоимость со скидкой: {finalPrice.toFixed(2)} ₽
       </p>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <div>

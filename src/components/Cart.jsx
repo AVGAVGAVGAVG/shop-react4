@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
+const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
   const [discountCode, setDiscountCode] = useState('')
   const [appliedDiscount, setAppliedDiscount] = useState(0)
 
@@ -11,20 +11,18 @@ const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
   const handleApplyDiscount = () => {
     if (discountCode.trim().toUpperCase() === 'SALE2025') {
       setAppliedDiscount(0.1)
-      localStorage.setItem('discountCjde','SALE2025')
+      localStorage.setItem('discountCode', 'SALE2025')
     } else {
       setAppliedDiscount(0)
-      localStorage.removeItem('discountCjde','SALE2025')
+      localStorage.removeItem('discountCode', 'SALE2025')
       alert('Неверный промокод!')
     }
   }
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
-    if (onSaveCart) {
-      onSaveCart(cartItems)
-    }
-  }, [cartItems, onSaveCart])
+
+  }, [cartItems])
 
   return (
     <div className='bg-white p-6 rounded-lg shadow-lg transition-all duration-300'>
@@ -96,11 +94,10 @@ const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
               </button>
             </div>
           </div>
-          <div className='mt-8 text-centr'>
-              <Link to={'/checkout'} className='inline-block bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-color'>
-                Купить
-              </Link>
-
+<div className='mt-8 text-center'>
+            <Link to={'/checkout '} className='inline-block bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors'>
+              Купить
+            </Link>
           </div>
         </>
       )}
