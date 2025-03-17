@@ -9,6 +9,8 @@ import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
 import PurchareHistory from "./pages/PurchareHistory"
 import ThankYouPage from './pages/ThankYouPage'
+import FavoritesPage from './pages/FavoritesPage'
+import {FavoritesProvider} from './context/FavoritesContext'
 
 export default function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -51,6 +53,7 @@ export default function App() {
 
 
   return (
+    <FavoritesProvider>
     <BrowserRouter>
       <Header />
       <main className='min-h-screen'>
@@ -61,9 +64,11 @@ export default function App() {
           <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} clearCart={clearCart} />} />
           <Route path="/orders" element={<PurchareHistory />} />
           <Route path="/thank-you" element={<ThankYouPage />}/>
+          <Route path="/favorites" element={<FavoritesPage />}/>
         </Routes>
       </main>
       <Footer />
     </BrowserRouter>
+  </FavoritesProvider>
   )
 }

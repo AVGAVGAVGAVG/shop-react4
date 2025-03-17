@@ -54,7 +54,7 @@ const navigate=useNavigate()
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 bg-white dark:bg-gray-800 transition-colors duration-300">
       <CheckoutForm cartItems={cartItems} finalPrice={finalPrice} onSubmit={handleCheckoutSubmit} />
     </div>
   )
