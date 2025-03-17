@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 const PurchareHistory = () =>{
     const [orders,setOrders]= useState([])
-    const [loding,setloding]= useState(true)
+    const [loading,setloading]= useState(true)
 
     useEffect(() =>{
         const fetchOrders = async() =>{
@@ -13,6 +13,7 @@ const PurchareHistory = () =>{
                 }
                 const data = await response.json()
                 setOrders(data)
+                setLoading(false)
             }catch (error) {
                 console.error(error)
                 alert('Ошибка при загрузке истории заказов')
